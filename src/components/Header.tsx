@@ -58,10 +58,10 @@ export default function Header() {
           }}
         >
           <Image
-            src="/wolfy.avif"
+            src="/wolfy.jpeg"
             alt="Big B Wolf Electric"
-            width={64}
-            height={64}
+            width={120}
+            height={120}
             style={{ objectFit: "contain" }}
             priority
           />
