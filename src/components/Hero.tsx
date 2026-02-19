@@ -30,7 +30,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Wolf sigil graphic */}
+      {/* Cartoon wolf head graphic */}
       <div
         style={{
           position: "absolute",
@@ -43,44 +43,62 @@ export default function Hero() {
         }}
       >
         <svg
-          viewBox="0 0 860 860"
+          viewBox="0 0 900 700"
           preserveAspectRatio="xMidYMid slice"
           style={{
             position: "absolute",
-            right: "-10%",
+            right: "-9%",
             top: "50%",
             transform: "translateY(-50%)",
-            width: "62%",
-            minWidth: "420px",
+            width: "64%",
+            minWidth: "440px",
             height: "auto",
             opacity: 0.95,
           }}
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <radialGradient id="sigilAura" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
+            <radialGradient id="wolfAura" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.22" />
               <stop offset="65%" stopColor="#3B82F6" stopOpacity="0.06" />
               <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
             </radialGradient>
-            <linearGradient id="sigilStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#93C5FD" />
-              <stop offset="45%" stopColor="#3B82F6" />
-              <stop offset="100%" stopColor="#1D4ED8" />
+            <linearGradient id="furMain" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#49566C" />
+              <stop offset="52%" stopColor="#2F394B" />
+              <stop offset="100%" stopColor="#1C2533" />
             </linearGradient>
-            <linearGradient id="sigilFill" x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stopColor="#13253f" stopOpacity="0.32" />
-              <stop offset="100%" stopColor="#070e1f" stopOpacity="0.5" />
+            <linearGradient id="furShadow" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#2A3342" />
+              <stop offset="100%" stopColor="#131B27" />
+            </linearGradient>
+            <linearGradient id="muzzleFur" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#C9D0DC" />
+              <stop offset="100%" stopColor="#AAB4C4" />
+            </linearGradient>
+            <linearGradient id="earInner" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#8D96A8" />
+              <stop offset="100%" stopColor="#5A6478" />
+            </linearGradient>
+            <radialGradient id="eyeBlue" cx="50%" cy="45%" r="55%">
+              <stop offset="0%" stopColor="#CDE7FF" />
+              <stop offset="35%" stopColor="#60A5FA" />
+              <stop offset="70%" stopColor="#3B82F6" />
+              <stop offset="100%" stopColor="#1D4ED8" />
+            </radialGradient>
+            <linearGradient id="noseGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#283142" />
+              <stop offset="100%" stopColor="#101723" />
             </linearGradient>
             <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur stdDeviation="28" result="blur" />
+              <feGaussianBlur stdDeviation="24" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-            <filter id="lineGlow" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="5" result="blur" />
+            <filter id="eyeGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="blur" />
@@ -89,73 +107,63 @@ export default function Hero() {
             </filter>
           </defs>
 
-          <circle cx="430" cy="430" r="315" fill="url(#sigilAura)" filter="url(#softGlow)" />
+          <ellipse cx="520" cy="350" rx="300" ry="265" fill="url(#wolfAura)" filter="url(#softGlow)" />
 
-          {/* Outer warding mark */}
+          {/* Ears */}
+          <path d="M358 138 L276 54 L272 252 L378 214 Z" fill="url(#furShadow)" stroke="#111827" strokeWidth="4" strokeLinejoin="round" />
+          <path d="M620 138 L702 54 L706 252 L600 214 Z" fill="url(#furShadow)" stroke="#111827" strokeWidth="4" strokeLinejoin="round" />
+          <path d="M338 145 L292 95 L294 225 L356 200 Z" fill="url(#earInner)" />
+          <path d="M640 145 L686 95 L684 225 L622 200 Z" fill="url(#earInner)" />
+
+          {/* Main head */}
           <path
-            d="M430 92 L584 184 L677 339 L643 540 L430 742 L217 540 L183 339 L276 184 Z"
-            fill="rgba(8,14,28,0.26)"
-            stroke="url(#sigilStroke)"
-            strokeWidth="8"
-            strokeLinejoin="round"
-            filter="url(#lineGlow)"
-          />
-
-          {/* Inner wolf crest */}
-          <path
-            d="M430 152 L530 263 L502 432 L430 624 L358 432 L330 263 Z"
-            fill="url(#sigilFill)"
-            stroke="url(#sigilStroke)"
-            strokeWidth="6"
-            strokeLinejoin="round"
-            filter="url(#lineGlow)"
-          />
-
-          {/* Ear blades */}
-          <path
-            d="M430 152 L352 250 L390 252 L430 216 L470 252 L508 250 Z"
-            fill="none"
-            stroke="#93C5FD"
-            strokeOpacity="0.85"
-            strokeWidth="4"
-            strokeLinejoin="round"
-          />
-
-          {/* Brow line and eyes */}
-          <path d="M338 324 L430 286 L522 324" fill="none" stroke="#60A5FA" strokeWidth="4" strokeLinecap="round" />
-          <path d="M354 352 L398 342" fill="none" stroke="#93C5FD" strokeWidth="5" strokeLinecap="round" />
-          <path d="M506 352 L462 342" fill="none" stroke="#93C5FD" strokeWidth="5" strokeLinecap="round" />
-
-          {/* Muzzle geometry */}
-          <path d="M430 318 L430 470" fill="none" stroke="#3B82F6" strokeWidth="4" strokeLinecap="round" />
-          <path
-            d="M430 470 L390 520 L418 520 L394 585 L430 546 L466 585 L442 520 L470 520 Z"
-            fill="rgba(59,130,246,0.18)"
-            stroke="url(#sigilStroke)"
-            strokeWidth="4"
-            strokeLinejoin="round"
-            filter="url(#lineGlow)"
-          />
-
-          {/* Jaw / fangs frame */}
-          <path
-            d="M318 440 L282 520 L338 536 L382 620 L430 670 L478 620 L522 536 L578 520 L542 440"
-            fill="none"
-            stroke="#3B82F6"
-            strokeOpacity="0.9"
+            d="M490 130 C422 102 332 137 295 224 C258 309 276 421 336 507 C382 574 456 616 540 612 C624 608 701 562 747 488 C792 416 800 329 768 247 C736 165 656 118 582 125 C548 129 515 146 490 170 Z"
+            fill="url(#furMain)"
+            stroke="#111827"
             strokeWidth="5"
             strokeLinejoin="round"
           />
 
-          {/* Side runes */}
-          <path d="M230 344 L282 344 L250 398 L284 452" fill="none" stroke="#60A5FA" strokeOpacity="0.7" strokeWidth="3" strokeLinecap="round" />
-          <path d="M630 344 L578 344 L610 398 L576 452" fill="none" stroke="#60A5FA" strokeOpacity="0.7" strokeWidth="3" strokeLinecap="round" />
+          {/* Cheek fur tufts */}
+          <path d="M334 414 L272 448 L332 488 L295 530 L378 548" fill="url(#furShadow)" stroke="#111827" strokeWidth="4" strokeLinejoin="round" />
+          <path d="M706 402 L768 440 L712 484 L744 522 L664 548" fill="url(#furShadow)" stroke="#111827" strokeWidth="4" strokeLinejoin="round" />
 
-          {/* Subtle spark points */}
-          <circle cx="430" cy="112" r="4" fill="#BFDBFE" />
-          <circle cx="188" cy="339" r="3.5" fill="#93C5FD" fillOpacity="0.8" />
-          <circle cx="672" cy="339" r="3.5" fill="#93C5FD" fillOpacity="0.8" />
-          <circle cx="430" cy="740" r="4" fill="#BFDBFE" />
+          {/* Forehead stripe */}
+          <path
+            d="M492 196 C460 214 436 246 432 286 C426 336 454 378 496 394 C538 410 590 390 613 354 C636 317 631 265 600 228 C572 194 528 178 492 196 Z"
+            fill="#909BB0"
+            fillOpacity="0.55"
+          />
+
+          {/* Eyes */}
+          <ellipse cx="428" cy="328" rx="62" ry="42" fill="#EAF3FF" stroke="#1F2937" strokeWidth="4" />
+          <ellipse cx="578" cy="328" rx="62" ry="42" fill="#EAF3FF" stroke="#1F2937" strokeWidth="4" />
+          <circle cx="428" cy="332" r="25" fill="url(#eyeBlue)" filter="url(#eyeGlow)" />
+          <circle cx="578" cy="332" r="25" fill="url(#eyeBlue)" filter="url(#eyeGlow)" />
+          <circle cx="428" cy="334" r="10" fill="#05080F" />
+          <circle cx="578" cy="334" r="10" fill="#05080F" />
+          <circle cx="420" cy="322" r="4.5" fill="#FFFFFF" />
+          <circle cx="570" cy="322" r="4.5" fill="#FFFFFF" />
+          <path d="M362 302 Q428 264 494 302" fill="none" stroke="#1F2937" strokeWidth="7" strokeLinecap="round" />
+          <path d="M512 302 Q578 264 644 302" fill="none" stroke="#1F2937" strokeWidth="7" strokeLinecap="round" />
+
+          {/* Muzzle */}
+          <path
+            d="M512 352 C460 356 418 394 414 442 C410 500 456 545 515 550 C574 555 628 515 637 459 C646 402 607 356 548 350 C536 348 523 349 512 352 Z"
+            fill="url(#muzzleFur)"
+            stroke="#1F2937"
+            strokeWidth="4"
+          />
+          <path d="M515 382 L548 420 L515 448 L482 420 Z" fill="url(#noseGrad)" stroke="#0B1220" strokeWidth="3" strokeLinejoin="round" />
+          <path d="M515 448 L515 500" fill="none" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
+          <path d="M515 500 C494 526 466 540 438 540" fill="none" stroke="#0F172A" strokeWidth="4" strokeLinecap="round" />
+          <path d="M515 500 C536 526 564 540 592 540" fill="none" stroke="#0F172A" strokeWidth="4" strokeLinecap="round" />
+          <path d="M488 540 L476 556 M542 540 L554 556" stroke="#0F172A" strokeWidth="3" strokeLinecap="round" />
+
+          {/* Fur detail lines */}
+          <path d="M428 250 L460 226 L494 246" fill="none" stroke="#BFC9D8" strokeOpacity="0.65" strokeWidth="3" strokeLinecap="round" />
+          <path d="M574 248 L606 226 L638 248" fill="none" stroke="#BFC9D8" strokeOpacity="0.65" strokeWidth="3" strokeLinecap="round" />
+          <path d="M370 420 L420 392 M660 410 L610 388" stroke="#4B5563" strokeWidth="3" strokeLinecap="round" />
         </svg>
       </div>
 
