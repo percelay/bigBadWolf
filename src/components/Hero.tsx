@@ -30,7 +30,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Two massive wolf eyes */}
+      {/* Wolf sigil graphic */}
       <div
         style={{
           position: "absolute",
@@ -43,250 +43,119 @@ export default function Hero() {
         }}
       >
         <svg
-          viewBox="0 0 900 420"
+          viewBox="0 0 860 860"
           preserveAspectRatio="xMidYMid slice"
           style={{
             position: "absolute",
-            right: "-5%",
+            right: "-10%",
             top: "50%",
             transform: "translateY(-50%)",
-            width: "68%",
-            minWidth: "520px",
+            width: "62%",
+            minWidth: "420px",
             height: "auto",
+            opacity: 0.95,
           }}
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            {/* Iris gradient — left eye */}
-            <radialGradient id="irisL" cx="50%" cy="45%" r="50%">
-              <stop offset="0%" stopColor="#0f2a5c" />
-              <stop offset="28%" stopColor="#1d4ed8" />
-              <stop offset="55%" stopColor="#3B82F6" />
-              <stop offset="75%" stopColor="#2563EB" />
-              <stop offset="100%" stopColor="#0c1e42" />
-            </radialGradient>
-            {/* Iris gradient — right eye */}
-            <radialGradient id="irisR" cx="50%" cy="45%" r="50%">
-              <stop offset="0%" stopColor="#0f2a5c" />
-              <stop offset="28%" stopColor="#1d4ed8" />
-              <stop offset="55%" stopColor="#3B82F6" />
-              <stop offset="75%" stopColor="#2563EB" />
-              <stop offset="100%" stopColor="#0c1e42" />
-            </radialGradient>
-            {/* Limbal ring highlight */}
-            <radialGradient id="limbalL" cx="50%" cy="50%" r="50%">
-              <stop offset="82%" stopColor="transparent" />
-              <stop offset="88%" stopColor="#60a5fa" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="transparent" />
-            </radialGradient>
-            <radialGradient id="limbalR" cx="50%" cy="50%" r="50%">
-              <stop offset="82%" stopColor="transparent" />
-              <stop offset="88%" stopColor="#60a5fa" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="transparent" />
-            </radialGradient>
-            {/* Outer ambient glow */}
-            <radialGradient id="glowL" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.22" />
-              <stop offset="60%" stopColor="#3B82F6" stopOpacity="0.07" />
+            <radialGradient id="sigilAura" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
+              <stop offset="65%" stopColor="#3B82F6" stopOpacity="0.06" />
               <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
             </radialGradient>
-            <radialGradient id="glowR" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.22" />
-              <stop offset="60%" stopColor="#3B82F6" stopOpacity="0.07" />
-              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
-            </radialGradient>
-            {/* Sclera gradient */}
-            <radialGradient id="scleraL" cx="50%" cy="40%" r="55%">
-              <stop offset="0%" stopColor="#0d1f3c" />
-              <stop offset="100%" stopColor="#060e1c" />
-            </radialGradient>
-            <radialGradient id="scleraR" cx="50%" cy="40%" r="55%">
-              <stop offset="0%" stopColor="#0d1f3c" />
-              <stop offset="100%" stopColor="#060e1c" />
-            </radialGradient>
-            {/* Glow blur filter */}
-            <filter id="blueGlow" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="14" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <linearGradient id="sigilStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#93C5FD" />
+              <stop offset="45%" stopColor="#3B82F6" />
+              <stop offset="100%" stopColor="#1D4ED8" />
+            </linearGradient>
+            <linearGradient id="sigilFill" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#13253f" stopOpacity="0.32" />
+              <stop offset="100%" stopColor="#070e1f" stopOpacity="0.5" />
+            </linearGradient>
+            <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
               <feGaussianBlur stdDeviation="28" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-            <filter id="irisGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="6" result="blur" />
+            <filter id="lineGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
               <feMerge>
+                <feMergeNode in="blur" />
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-            {/* Pupil clip */}
-            <clipPath id="clipL">
-              <ellipse cx="225" cy="210" rx="118" ry="88" />
-            </clipPath>
-            <clipPath id="clipR">
-              <ellipse cx="675" cy="210" rx="118" ry="88" />
-            </clipPath>
           </defs>
 
-          {/* ── LEFT EYE ── */}
-          {/* Outermost ambient halo */}
-          <ellipse cx="225" cy="210" rx="230" ry="185" fill="url(#glowL)" />
-          {/* Sclera */}
-          <ellipse cx="225" cy="210" rx="175" ry="128" fill="url(#scleraL)" />
-          {/* Iris */}
-          <ellipse cx="225" cy="210" rx="118" ry="88" fill="url(#irisL)" filter="url(#irisGlow)" />
-          {/* Iris texture — radial spokes */}
-          {Array.from({ length: 20 }).map((_, i) => {
-            const angle = (i / 20) * Math.PI * 2;
-            const x1 = 225 + Math.cos(angle) * 28;
-            const y1 = 210 + Math.sin(angle) * 21;
-            const x2 = 225 + Math.cos(angle) * 112;
-            const y2 = 210 + Math.sin(angle) * 84;
-            return (
-              <line
-                key={`spoke-l-${i}`}
-                x1={x1} y1={y1} x2={x2} y2={y2}
-                stroke="#60a5fa"
-                strokeWidth="0.6"
-                strokeOpacity="0.25"
-              />
-            );
-          })}
-          {/* Limbal ring */}
-          <ellipse cx="225" cy="210" rx="118" ry="88" fill="url(#limbalL)" />
-          {/* Pupil — vertical wolf slit */}
-          <ellipse cx="225" cy="210" rx="17" ry="82" fill="#03080f" clipPath="url(#clipL)" />
-          {/* Pupil inner depth */}
-          <ellipse cx="225" cy="210" rx="10" ry="78" fill="#010306" />
-          {/* Eye shine — primary */}
-          <ellipse
-            cx="198" cy="178"
-            rx="18" ry="11"
-            fill="white"
-            opacity="0.18"
-            transform="rotate(-18, 198, 178)"
-          />
-          {/* Eye shine — secondary */}
-          <ellipse
-            cx="252" cy="192"
-            rx="7" ry="4"
-            fill="white"
-            opacity="0.1"
-            transform="rotate(-12, 252, 192)"
-          />
-          {/* Iris inner glow ring */}
-          <ellipse cx="225" cy="210" rx="30" ry="23" fill="none" stroke="#93c5fd" strokeWidth="1.5" strokeOpacity="0.2" />
-          {/* Eyelid top */}
+          <circle cx="430" cy="430" r="315" fill="url(#sigilAura)" filter="url(#softGlow)" />
+
+          {/* Outer warding mark */}
           <path
-            d="M50 210 Q100 80 225 82 Q350 80 400 210"
-            fill="#111820"
-            stroke="none"
-          />
-          {/* Eyelid bottom */}
-          <path
-            d="M50 210 Q100 340 225 338 Q350 340 400 210"
-            fill="#111820"
-            stroke="none"
-          />
-          {/* Eyelid edge glow top */}
-          <path
-            d="M50 210 Q100 80 225 82 Q350 80 400 210"
-            fill="none"
-            stroke="#3B82F6"
-            strokeWidth="1.5"
-            strokeOpacity="0.35"
-          />
-          {/* Eyelid edge glow bottom */}
-          <path
-            d="M50 210 Q100 340 225 338 Q350 340 400 210"
-            fill="none"
-            stroke="#3B82F6"
-            strokeWidth="1"
-            strokeOpacity="0.2"
+            d="M430 92 L584 184 L677 339 L643 540 L430 742 L217 540 L183 339 L276 184 Z"
+            fill="rgba(8,14,28,0.26)"
+            stroke="url(#sigilStroke)"
+            strokeWidth="8"
+            strokeLinejoin="round"
+            filter="url(#lineGlow)"
           />
 
-          {/* ── RIGHT EYE ── */}
-          {/* Outermost ambient halo */}
-          <ellipse cx="675" cy="210" rx="230" ry="185" fill="url(#glowR)" />
-          {/* Sclera */}
-          <ellipse cx="675" cy="210" rx="175" ry="128" fill="url(#scleraR)" />
-          {/* Iris */}
-          <ellipse cx="675" cy="210" rx="118" ry="88" fill="url(#irisR)" filter="url(#irisGlow)" />
-          {/* Iris texture */}
-          {Array.from({ length: 20 }).map((_, i) => {
-            const angle = (i / 20) * Math.PI * 2;
-            const x1 = 675 + Math.cos(angle) * 28;
-            const y1 = 210 + Math.sin(angle) * 21;
-            const x2 = 675 + Math.cos(angle) * 112;
-            const y2 = 210 + Math.sin(angle) * 84;
-            return (
-              <line
-                key={`spoke-r-${i}`}
-                x1={x1} y1={y1} x2={x2} y2={y2}
-                stroke="#60a5fa"
-                strokeWidth="0.6"
-                strokeOpacity="0.25"
-              />
-            );
-          })}
-          {/* Limbal ring */}
-          <ellipse cx="675" cy="210" rx="118" ry="88" fill="url(#limbalR)" />
-          {/* Pupil */}
-          <ellipse cx="675" cy="210" rx="17" ry="82" fill="#03080f" clipPath="url(#clipR)" />
-          <ellipse cx="675" cy="210" rx="10" ry="78" fill="#010306" />
-          {/* Eye shine */}
-          <ellipse
-            cx="648" cy="178"
-            rx="18" ry="11"
-            fill="white"
-            opacity="0.18"
-            transform="rotate(-18, 648, 178)"
-          />
-          <ellipse
-            cx="702" cy="192"
-            rx="7" ry="4"
-            fill="white"
-            opacity="0.1"
-            transform="rotate(-12, 702, 192)"
-          />
-          {/* Iris inner glow ring */}
-          <ellipse cx="675" cy="210" rx="30" ry="23" fill="none" stroke="#93c5fd" strokeWidth="1.5" strokeOpacity="0.2" />
-          {/* Eyelid top */}
+          {/* Inner wolf crest */}
           <path
-            d="M500 210 Q550 80 675 82 Q800 80 850 210"
-            fill="#111820"
-            stroke="none"
+            d="M430 152 L530 263 L502 432 L430 624 L358 432 L330 263 Z"
+            fill="url(#sigilFill)"
+            stroke="url(#sigilStroke)"
+            strokeWidth="6"
+            strokeLinejoin="round"
+            filter="url(#lineGlow)"
           />
-          {/* Eyelid bottom */}
+
+          {/* Ear blades */}
           <path
-            d="M500 210 Q550 340 675 338 Q800 340 850 210"
-            fill="#111820"
-            stroke="none"
+            d="M430 152 L352 250 L390 252 L430 216 L470 252 L508 250 Z"
+            fill="none"
+            stroke="#93C5FD"
+            strokeOpacity="0.85"
+            strokeWidth="4"
+            strokeLinejoin="round"
           />
-          {/* Eyelid edge glow top */}
+
+          {/* Brow line and eyes */}
+          <path d="M338 324 L430 286 L522 324" fill="none" stroke="#60A5FA" strokeWidth="4" strokeLinecap="round" />
+          <path d="M354 352 L398 342" fill="none" stroke="#93C5FD" strokeWidth="5" strokeLinecap="round" />
+          <path d="M506 352 L462 342" fill="none" stroke="#93C5FD" strokeWidth="5" strokeLinecap="round" />
+
+          {/* Muzzle geometry */}
+          <path d="M430 318 L430 470" fill="none" stroke="#3B82F6" strokeWidth="4" strokeLinecap="round" />
           <path
-            d="M500 210 Q550 80 675 82 Q800 80 850 210"
+            d="M430 470 L390 520 L418 520 L394 585 L430 546 L466 585 L442 520 L470 520 Z"
+            fill="rgba(59,130,246,0.18)"
+            stroke="url(#sigilStroke)"
+            strokeWidth="4"
+            strokeLinejoin="round"
+            filter="url(#lineGlow)"
+          />
+
+          {/* Jaw / fangs frame */}
+          <path
+            d="M318 440 L282 520 L338 536 L382 620 L430 670 L478 620 L522 536 L578 520 L542 440"
             fill="none"
             stroke="#3B82F6"
-            strokeWidth="1.5"
-            strokeOpacity="0.35"
+            strokeOpacity="0.9"
+            strokeWidth="5"
+            strokeLinejoin="round"
           />
-          {/* Eyelid edge glow bottom */}
-          <path
-            d="M500 210 Q550 340 675 338 Q800 340 850 210"
-            fill="none"
-            stroke="#3B82F6"
-            strokeWidth="1"
-            strokeOpacity="0.2"
-          />
+
+          {/* Side runes */}
+          <path d="M230 344 L282 344 L250 398 L284 452" fill="none" stroke="#60A5FA" strokeOpacity="0.7" strokeWidth="3" strokeLinecap="round" />
+          <path d="M630 344 L578 344 L610 398 L576 452" fill="none" stroke="#60A5FA" strokeOpacity="0.7" strokeWidth="3" strokeLinecap="round" />
+
+          {/* Subtle spark points */}
+          <circle cx="430" cy="112" r="4" fill="#BFDBFE" />
+          <circle cx="188" cy="339" r="3.5" fill="#93C5FD" fillOpacity="0.8" />
+          <circle cx="672" cy="339" r="3.5" fill="#93C5FD" fillOpacity="0.8" />
+          <circle cx="430" cy="740" r="4" fill="#BFDBFE" />
         </svg>
       </div>
 
