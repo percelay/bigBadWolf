@@ -264,7 +264,7 @@ export default function Contact() {
                 </h3>
                 <p style={{ color: "#A3A3A3", fontSize: "0.9rem", lineHeight: 1.6 }}>
                   We&apos;ll review your project details and follow up within one
-                  business day. Thank you for choosing Big Bad Wolf Electric.
+                  business day. Thank you for choosing Big B Wolf Electric.
                 </p>
               </div>
             ) : (

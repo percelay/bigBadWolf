@@ -8,7 +8,7 @@ export default function WolfLogo({ size = 40 }: { size?: number }) {
       viewBox="0 0 80 80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Big Bad Wolf Electric logo"
+      aria-label="Big B Wolf Electric logo"
     >
       {/* Wolf head silhouette */}
       <path

@@ -71,7 +71,7 @@ export default function Footer() {
                   lineHeight: 1.1,
                 }}
               >
-                BIG BAD WOLF
+                BIG B WOLF
               </div>
               <div
                 style={{
@@ -393,7 +393,7 @@ export default function Footer() {
           }}
         >
           <span style={{ color: "#A3A3A3", fontSize: "0.75rem" }}>
-            © {new Date().getFullYear()} Big Bad Wolf Electric. All rights
+            © {new Date().getFullYear()} Big B Wolf Electric. All rights
             reserved. · Contractor Lic# 67363
           </span>
           <div style={{ display: "flex", gap: "1.5rem" }}>

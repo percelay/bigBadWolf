@@ -21,7 +21,7 @@ export default function Hero() {
       {/* Full-bleed background photo */}
       <Image
         src="/trucks.jpg"
-        alt="Big Bad Wolf Electric fleet"
+        alt="Big B Wolf Electric fleet"
         fill
         priority
         style={{ objectFit: "cover", objectPosition: "center 40%" }}

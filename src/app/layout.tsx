@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Big Bad Wolf Electric | Commercial & Residential Electrical",
+  title: "Big B Wolf Electric | Commercial & Residential Electrical",
   description:
-    "Big Bad Wolf Electric — Powering Commercial & Residential Excellence. Licensed, insured, A+ BBB certified. Lic# 67363.",
+    "Big B Wolf Electric — Powering Commercial & Residential Excellence. Licensed, insured, A+ BBB certified. Lic# 67363.",
   keywords: [
     "electrician",
     "commercial electrical",

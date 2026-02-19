@@ -59,9 +59,9 @@ export default function Header() {
         >
           <Image
             src="/wolfy.avif"
-            alt="Big Bad Wolf Electric"
-            width={42}
-            height={42}
+            alt="Big B Wolf Electric"
+            width={64}
+            height={64}
             style={{ objectFit: "contain" }}
             priority
           />
@@ -75,7 +75,7 @@ export default function Header() {
                 lineHeight: 1.1,
               }}
             >
-              BIG BAD WOLF
+              BIG B WOLF
             </div>
             <div
               style={{

@@ -126,7 +126,7 @@ export default function About() {
                 marginBottom: "2rem",
               }}
             >
-              Big Bad Wolf Electric brings a relentless work ethic and precision
+              Big B Wolf Electric brings a relentless work ethic and precision
               craftsmanship to every project — whether it&apos;s a 200-amp panel
               upgrade for a homeowner or a full LED conversion for a
               200,000 sq ft distribution center.
