@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Zap } from "lucide-react";
-import WolfLogo from "./WolfLogo";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -57,7 +57,14 @@ export default function Header() {
             textDecoration: "none",
           }}
         >
-          <WolfLogo size={42} />
+          <Image
+            src="/wolfy.avif"
+            alt="Big Bad Wolf Electric"
+            width={42}
+            height={42}
+            style={{ objectFit: "contain" }}
+            priority
+          />
           <div>
             <div
               style={{
