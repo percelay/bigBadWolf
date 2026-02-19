@@ -18,42 +18,27 @@ export default function Hero() {
         backgroundColor: "#0a0a0a",
       }}
     >
-      {/* Full-bleed background photo */}
+      {/* Full-bleed background photo — no tint */}
       <Image
         src="/trucks.jpg"
         alt="Big B Wolf Electric fleet"
         fill
         priority
         style={{ objectFit: "cover", objectPosition: "center 40%" }}
-        quality={90}
+        quality={95}
       />
 
-      {/* Dark base overlay — kills most of the photo brightness */}
+      {/* Minimal bottom scrim — only enough to floor the text, not dim the photo */}
       <div
         style={{
           position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(10,10,10,0.52)",
-        }}
-      />
-
-      {/* Heavy bottom-to-top gradient — ensures text is always readable */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "42%",
           background:
-            "linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 35%, rgba(10,10,10,0.4) 65%, rgba(10,10,10,0.15) 100%)",
-        }}
-      />
-
-      {/* Left vignette — anchors text column */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(to right, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.2) 50%, transparent 100%)",
+            "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)",
+          pointerEvents: "none",
         }}
       />
 
@@ -65,92 +50,40 @@ export default function Hero() {
           maxWidth: "1280px",
           margin: "0 auto",
           width: "100%",
-          padding: "0 1.5rem 5rem",
+          padding: "0 1.5rem 4.5rem",
         }}
       >
-        {/* Top badge */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            border: "1px solid rgba(59,130,246,0.6)",
-            padding: "0.375rem 0.875rem",
-            marginBottom: "1.75rem",
-            backgroundColor: "rgba(59,130,246,0.15)",
-            backdropFilter: "blur(4px)",
-          }}
-        >
-          <Zap size={13} color="#60a5fa" strokeWidth={2.5} />
-          <span
-            style={{
-              fontSize: "0.7rem",
-              fontWeight: 700,
-              letterSpacing: "0.18em",
-              color: "#93c5fd",
-              textTransform: "uppercase",
-            }}
-          >
-            Licensed & Insured · Lic# 67363
-          </span>
-        </div>
-
-        {/* Headline */}
+        {/* Subheadline — now the primary text */}
         <h1
           style={{
             fontWeight: 900,
-            fontSize: "clamp(3rem, 8vw, 7rem)",
-            lineHeight: 0.95,
+            fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
             color: "#FFFFFF",
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.01em",
             margin: 0,
-            marginBottom: "1.5rem",
-            maxWidth: "800px",
-            textShadow: "0 2px 40px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9)",
-          }}
-        >
-          BIG BAD
-          <br />
-          <span
-            style={{
-              color: "#3B82F6",
-              textShadow: "0 0 60px rgba(59,130,246,0.5), 0 2px 20px rgba(0,0,0,0.9)",
-            }}
-          >
-            WOLF
-          </span>
-          <br />
-          ELECTRIC
-        </h1>
-
-        {/* Subheadline */}
-        <p
-          style={{
-            fontSize: "clamp(1rem, 2.5vw, 1.35rem)",
-            color: "rgba(255,255,255,0.88)",
-            fontWeight: 500,
-            marginBottom: "2.5rem",
-            maxWidth: "520px",
-            lineHeight: 1.55,
-            textShadow: "0 1px 12px rgba(0,0,0,0.8)",
+            marginBottom: "1.25rem",
+            lineHeight: 1.15,
+            maxWidth: "640px",
+            textShadow:
+              "0 2px 8px rgba(0,0,0,0.9), 0 4px 32px rgba(0,0,0,0.7)",
           }}
         >
           Powering Commercial &amp; Residential Excellence.
-        </p>
+        </h1>
 
         {/* Trust badges row */}
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "0.75rem",
-            marginBottom: "2.75rem",
+            gap: "0.6rem",
+            marginBottom: "2rem",
           }}
         >
           {[
-            { icon: <Shield size={14} strokeWidth={2.5} />, text: "Fully Licensed & Insured" },
-            { icon: <Award size={14} strokeWidth={2.5} />, text: "A+ BBB Certified" },
-            { icon: <Zap size={14} strokeWidth={2.5} />, text: "Lic# 67363" },
+            { icon: <Shield size={13} strokeWidth={2.5} />, text: "Fully Licensed & Insured" },
+            { icon: <Award size={13} strokeWidth={2.5} />, text: "A+ BBB Certified" },
+            { icon: <Zap size={13} strokeWidth={2.5} />, text: "Lic# 67363" },
           ].map(({ icon, text }) => (
             <div
               key={text}
@@ -158,14 +91,15 @@ export default function Hero() {
                 display: "flex",
                 alignItems: "center",
                 gap: "0.4rem",
-                backgroundColor: "rgba(0,0,0,0.55)",
-                border: "1px solid rgba(255,255,255,0.18)",
-                padding: "0.4rem 0.85rem",
+                backgroundColor: "rgba(0,0,0,0.5)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                padding: "0.45rem 0.9rem",
                 color: "#FFFFFF",
-                fontSize: "0.78rem",
+                fontSize: "0.8rem",
                 fontWeight: 600,
                 letterSpacing: "0.04em",
-                backdropFilter: "blur(6px)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
               }}
             >
               <span style={{ color: "#60a5fa" }}>{icon}</span>
@@ -186,11 +120,11 @@ export default function Hero() {
               color: "#FFFFFF",
               textDecoration: "none",
               fontWeight: 700,
-              fontSize: "0.875rem",
+              fontSize: "0.9rem",
               letterSpacing: "0.1em",
               padding: "0.9rem 2rem",
               transition: "background-color 0.2s ease, transform 0.15s ease",
-              boxShadow: "0 4px 24px rgba(59,130,246,0.4)",
+              boxShadow: "0 4px 24px rgba(59,130,246,0.45)",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "#2563EB";
@@ -214,17 +148,18 @@ export default function Hero() {
               color: "#FFFFFF",
               textDecoration: "none",
               fontWeight: 600,
-              fontSize: "0.875rem",
+              fontSize: "0.9rem",
               letterSpacing: "0.1em",
               padding: "0.9rem 2rem",
               border: "1px solid rgba(255,255,255,0.3)",
-              backdropFilter: "blur(6px)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
               transition: "border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "#3B82F6";
               e.currentTarget.style.color = "#60a5fa";
-              e.currentTarget.style.backgroundColor = "rgba(59,130,246,0.1)";
+              e.currentTarget.style.backgroundColor = "rgba(59,130,246,0.12)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
@@ -253,15 +188,16 @@ export default function Hero() {
         <span
           style={{
             fontSize: "0.6rem",
-            color: "rgba(255,255,255,0.5)",
+            color: "rgba(255,255,255,0.55)",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
             writingMode: "vertical-rl",
+            textShadow: "0 1px 4px rgba(0,0,0,0.8)",
           }}
         >
           Scroll
         </span>
-        <ArrowDown size={14} color="rgba(255,255,255,0.5)" strokeWidth={1.5} />
+        <ArrowDown size={14} color="rgba(255,255,255,0.55)" strokeWidth={1.5} />
       </div>
     </section>
   );
