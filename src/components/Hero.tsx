@@ -20,8 +20,8 @@ export default function Hero() {
     >
       {/* Full-bleed background photo — no tint */}
       <Image
-        src="/trucks.jpg"
-        alt="Big B Wolf Electric fleet"
+        src="/Gemini_Generated_Image_3e0vte3e0vte3e0v.png"
+        alt="Big B Wolf Electric"
         fill
         priority
         style={{ objectFit: "cover", objectPosition: "center 40%" }}
