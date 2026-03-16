@@ -32,7 +32,7 @@ export default function Contact() {
             </p>
 
             {[
-              { icon: Phone, label: "Phone", value: "(405) 555-0100", href: "tel:4055550100" },
+              { icon: Phone, label: "Phone", value: "(405) 577-6680", href: "tel:4055776680" },
               { icon: Mail, label: "Email", value: "fleeta@bigbwolfelectric.com", href: "mailto:fleeta@bigbwolfelectric.com" },
               { icon: MapPin, label: "Address", value: "10601 NW 2nd St\nYukon, OK 73099", href: "https://maps.google.com/?q=10601+NW+2nd+St+Yukon+OK+73099" },
             ].map(({ icon: Icon, label, value, href }) => (
