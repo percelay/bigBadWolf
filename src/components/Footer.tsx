@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Gallery", href: "#gallery" },
 ];
 
 const serviceLinks = [
@@ -16,7 +16,7 @@ const serviceLinks = [
   { label: "Parking Lot Lighting", href: "#services" },
   { label: "Restaurant Electrical", href: "#services" },
   { label: "Generac Generator Install", href: "#services" },
-  { label: "Get a Free Quote", href: "#contact" },
+  { label: "Get a Free Quote", href: "mailto:fleeta@bigbwolfelectric.com" },
 ];
 
 const reviewPlatforms = [

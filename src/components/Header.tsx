@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Gallery", href: "#gallery" },
 ];
 
 export default function Header() {
@@ -122,7 +122,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="mailto:fleeta@bigbwolfelectric.com"
             style={{
               marginLeft: "0.5rem",
               backgroundColor: "#3B82F6",
@@ -202,7 +202,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="mailto:fleeta@bigbwolfelectric.com"
             onClick={() => setMenuOpen(false)}
             style={{
               marginTop: "1rem",

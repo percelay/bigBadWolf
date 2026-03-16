@@ -111,7 +111,7 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
           <a
-            href="#contact"
+            href="mailto:fleeta@bigbwolfelectric.com"
             style={{
               display: "inline-flex",
               alignItems: "center",

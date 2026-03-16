@@ -187,7 +187,7 @@ function ProjectModal({ open, onClose }: { open: boolean; onClose: () => void })
             </div>
 
             <a
-              href="#contact"
+              href="mailto:fleeta@bigbwolfelectric.com"
               onClick={onClose}
               style={{
                 display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem",

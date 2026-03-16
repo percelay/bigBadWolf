@@ -111,7 +111,7 @@ export default function Services() {
             </div>
 
             <a
-              href="#contact"
+              href="mailto:fleeta@bigbwolfelectric.com"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
