@@ -136,7 +136,6 @@ export default function About() {
               "Commercial & residential new construction",
               "LED retrofits and energy audits",
               "Code-compliant service upgrades",
-              "24/7 emergency service available",
             ].map((item) => (
               <div
                 key={item}
