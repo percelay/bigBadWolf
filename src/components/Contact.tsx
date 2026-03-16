@@ -1,56 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Zap, Phone, Mail, MapPin, Send, CheckCircle, Loader } from "lucide-react";
+import { Zap, Phone, Mail, MapPin, CheckCircle } from "lucide-react";
 
 export default function Contact() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    projectType: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Send failed");
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  };
-
-  const inputStyle: React.CSSProperties = {
-    width: "100%",
-    backgroundColor: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    color: "#FFFFFF",
-    fontSize: "0.9rem",
-    padding: "0.85rem 1rem",
-    outline: "none",
-    fontFamily: "inherit",
-    transition: "border-color 0.2s ease",
-  };
-
-  const labelStyle: React.CSSProperties = {
-    display: "block",
-    fontSize: "0.65rem",
-    fontWeight: 700,
-    letterSpacing: "0.15em",
-    color: "#A3A3A3",
-    textTransform: "uppercase",
-    marginBottom: "0.4rem",
-  };
-
   return (
     <section
       id="contact"
@@ -66,16 +18,16 @@ export default function Contact() {
             </span>
           </div>
           <h2 style={{ fontWeight: 900, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#FFFFFF", margin: 0, lineHeight: 1, letterSpacing: "-0.02em" }}>
-            REQUEST A QUOTE
+            CONTACT US
           </h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "4rem", alignItems: "start" }} className="contact-grid">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }} className="contact-grid">
 
           {/* Left: contact info */}
           <div>
             <p style={{ color: "#A3A3A3", fontSize: "0.95rem", lineHeight: 1.75, marginBottom: "2.5rem" }}>
-              Ready to start your project? Fill out the form and we&apos;ll get
+              Ready to start your project? Reach out and we&apos;ll get
               back to you within one business day with a detailed estimate.
             </p>
 
@@ -105,141 +57,56 @@ export default function Contact() {
                 </div>
               </div>
             ))}
+          </div>
 
-            {/* Trust badges */}
-            <div style={{ marginTop: "2rem", padding: "1.5rem", backgroundColor: "rgba(59,130,246,0.06)", border: "1px solid rgba(59,130,246,0.2)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+          {/* Right: credentials */}
+          <div>
+            <div style={{ padding: "2rem", backgroundColor: "rgba(59,130,246,0.06)", border: "1px solid rgba(59,130,246,0.2)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
                 <Zap size={14} color="#3B82F6" strokeWidth={2.5} />
                 <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", color: "#3B82F6", textTransform: "uppercase" }}>
                   Credentials
                 </span>
               </div>
               {["Fully Licensed & Insured", "A+ BBB Certified", "Lic# 67363", "Certified Generac Installer"].map((item) => (
-                <div key={item} style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                <div key={item} style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.6rem" }}>
                   <CheckCircle size={13} color="#3B82F6" strokeWidth={2} />
-                  <span style={{ color: "#FFFFFF", fontSize: "0.82rem" }}>{item}</span>
+                  <span style={{ color: "#FFFFFF", fontSize: "0.85rem" }}>{item}</span>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Right: form */}
-          <div>
-            {status === "success" ? (
-              <div style={{ backgroundColor: "#2F2F2F", border: "1px solid rgba(59,130,246,0.4)", padding: "3rem", textAlign: "center" }}>
-                <CheckCircle size={48} color="#3B82F6" strokeWidth={1.5} style={{ margin: "0 auto 1.5rem" }} />
-                <h3 style={{ fontWeight: 900, fontSize: "1.5rem", color: "#FFFFFF", marginBottom: "0.75rem" }}>
-                  Message Received
-                </h3>
-                <p style={{ color: "#A3A3A3", fontSize: "0.9rem", lineHeight: 1.6 }}>
-                  We&apos;ll review your project details and follow up within one
-                  business day. Thank you for choosing Big B Wolf Electric.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                  <div>
-                    <label style={labelStyle}>Full Name *</label>
-                    <input
-                      type="text" required placeholder="John Smith"
-                      value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      style={inputStyle}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(59,130,246,0.6)")}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)")}
-                    />
-                  </div>
-                  <div>
-                    <label style={labelStyle}>Phone</label>
-                    <input
-                      type="tel" placeholder="(405) 000-0000"
-                      value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      style={inputStyle}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(59,130,246,0.6)")}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)")}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label style={labelStyle}>Email *</label>
-                  <input
-                    type="email" required placeholder="john@company.com"
-                    value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    style={inputStyle}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(59,130,246,0.6)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)")}
-                  />
-                </div>
-
-                <div>
-                  <label style={labelStyle}>Project Type</label>
-                  <select
-                    value={form.projectType} onChange={(e) => setForm({ ...form, projectType: e.target.value })}
-                    style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(59,130,246,0.6)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)")}
-                  >
-                    <option value="" style={{ backgroundColor: "#2F2F2F" }}>Select a project type...</option>
-                    <option value="Commercial New Construction" style={{ backgroundColor: "#2F2F2F" }}>Commercial New Construction</option>
-                    <option value="Commercial Remodel / Service Work" style={{ backgroundColor: "#2F2F2F" }}>Commercial Remodel / Service Work</option>
-                    <option value="Panel Upgrade / Electrical Buildout" style={{ backgroundColor: "#2F2F2F" }}>Panel Upgrade / Electrical Buildout</option>
-                    <option value="LED Commercial Upgrade" style={{ backgroundColor: "#2F2F2F" }}>LED Commercial Upgrade</option>
-                    <option value="Parking Lot Lighting" style={{ backgroundColor: "#2F2F2F" }}>Parking Lot Lighting</option>
-                    <option value="Restaurant Electrical" style={{ backgroundColor: "#2F2F2F" }}>Restaurant Electrical</option>
-                    <option value="Residential Remodel / Service Work" style={{ backgroundColor: "#2F2F2F" }}>Residential Remodel / Service Work</option>
-                    <option value="Generac Generator" style={{ backgroundColor: "#2F2F2F" }}>Generac Generator Installation</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label style={labelStyle}>Project Details *</label>
-                  <textarea
-                    required rows={5}
-                    placeholder="Describe your project, location, timeline, and any specific requirements..."
-                    value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    style={{ ...inputStyle, resize: "vertical", minHeight: "120px" }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(59,130,246,0.6)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)")}
-                  />
-                </div>
-
-                {status === "error" && (
-                  <div style={{ backgroundColor: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.3)", padding: "0.75rem 1rem", color: "#fca5a5", fontSize: "0.85rem" }}>
-                    Something went wrong. Please try again or email us directly at fleeta@bigbwolfelectric.com.
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  style={{
-                    display: "flex", alignItems: "center", justifyContent: "center", gap: "0.6rem",
-                    backgroundColor: "#3B82F6", color: "#FFFFFF", border: "none",
-                    fontSize: "0.875rem", fontWeight: 700, letterSpacing: "0.1em",
-                    padding: "1rem 2rem", cursor: status === "sending" ? "not-allowed" : "pointer",
-                    fontFamily: "inherit", opacity: status === "sending" ? 0.75 : 1,
-                    transition: "background-color 0.2s ease, transform 0.15s ease",
-                  }}
-                  onMouseEnter={(e) => { if (status !== "sending") { e.currentTarget.style.backgroundColor = "#2563EB"; e.currentTarget.style.transform = "translateY(-1px)"; } }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#3B82F6"; e.currentTarget.style.transform = "translateY(0)"; }}
-                >
-                  {status === "sending"
-                    ? <><Loader size={15} strokeWidth={2} style={{ animation: "spin 1s linear infinite" }} /> SENDING...</>
-                    : <><Send size={15} strokeWidth={2} /> SEND REQUEST</>
-                  }
-                </button>
-              </form>
-            )}
+            <a
+              href="mailto:fleeta@bigbwolfelectric.com"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.6rem",
+                backgroundColor: "#3B82F6",
+                color: "#FFFFFF",
+                textDecoration: "none",
+                fontSize: "0.875rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                padding: "1rem 2rem",
+                marginTop: "1.5rem",
+                transition: "background-color 0.2s ease, transform 0.15s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#2563EB"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#3B82F6"; e.currentTarget.style.transform = "translateY(0)"; }}
+            >
+              <Mail size={15} strokeWidth={2} />
+              EMAIL US FOR A QUOTE
+            </a>
           </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
         }
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
       `}</style>
     </section>
   );
