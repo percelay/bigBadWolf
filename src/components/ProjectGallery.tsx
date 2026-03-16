@@ -10,7 +10,7 @@ const projects = [
     id: 1,
     title: "Industrial Warehouse LED Retrofit",
     category: "LED Upgrade",
-    location: "Phoenix, AZ",
+    location: "Yukon, OK",
     icon: Lightbulb,
     span: "col-2 row-2",
     accent: "#3B82F6",
@@ -23,7 +23,7 @@ const projects = [
     id: 2,
     title: "Commercial New Construction",
     category: "New Construction",
-    location: "Scottsdale, AZ",
+    location: "Edmond, OK",
     icon: Zap,
     span: "col-1 row-1",
     accent: "#3B82F6",
@@ -36,7 +36,7 @@ const projects = [
     id: 3,
     title: "Parking Lot LED Install",
     category: "Parking Lot",
-    location: "Mesa, AZ",
+    location: "Norman, OK",
     icon: Factory,
     span: "col-1 row-1",
     accent: "#3B82F6",
@@ -49,7 +49,7 @@ const projects = [
     id: 4,
     title: "Residential Panel Upgrade",
     category: "Service Work",
-    location: "Tempe, AZ",
+    location: "Moore, OK",
     icon: Zap,
     span: "col-1 row-1",
     accent: "#3B82F6",
@@ -62,7 +62,7 @@ const projects = [
     id: 5,
     title: "Distribution Center Lighting",
     category: "LED Upgrade",
-    location: "Gilbert, AZ",
+    location: "Midwest City, OK",
     icon: Lightbulb,
     span: "col-1 row-1",
     accent: "#3B82F6",
@@ -100,7 +100,7 @@ function ProjectModal({ open, onClose }: { open: boolean; onClose: () => void })
         }}>
           <Lightbulb size={11} color="#60a5fa" strokeWidth={2.5} />
           <span style={{ fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.15em", color: "#93c5fd", textTransform: "uppercase" }}>
-            LED Upgrade · Phoenix, AZ
+            LED Upgrade · Yukon, OK
           </span>
         </div>
         <div style={{ position: "absolute", bottom: "1.5rem", left: "2rem" }}>
@@ -133,7 +133,7 @@ function ProjectModal({ open, onClose }: { open: boolean; onClose: () => void })
               Project Overview
             </h4>
             <p style={{ color: "#A3A3A3", fontSize: "0.9rem", lineHeight: 1.75, marginBottom: "1.25rem" }}>
-              This Phoenix-area distribution warehouse was running 400W metal halide high-bays across its entire 80,000 sq ft floor. Aging fixtures produced poor light quality and excessive heat — driving up energy and HVAC costs.
+              This Oklahoma distribution warehouse was running 400W metal halide high-bays across its entire 80,000 sq ft floor. Aging fixtures produced poor light quality and excessive heat — driving up energy and HVAC costs.
             </p>
             <p style={{ color: "#A3A3A3", fontSize: "0.9rem", lineHeight: 1.75, marginBottom: "1.5rem" }}>
               Big B Wolf Electric designed and installed a complete LED high-bay system, achieving a 60% reduction in lighting energy consumption and dramatically improving foot-candle levels at the work surface.

@@ -1,8 +1,6 @@
 "use client";
 
-import { Zap, Shield, Award, ExternalLink, ArrowRight } from "lucide-react";
-import { useState } from "react";
-import WolfLogo from "./WolfLogo";
+import { Zap, Shield, Award, ExternalLink, Star } from "lucide-react";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -12,23 +10,43 @@ const navLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Residential Construction", href: "#services" },
-  { label: "Commercial Construction", href: "#services" },
+  { label: "Commercial New Construction", href: "#services" },
+  { label: "Remodel & Service Work", href: "#services" },
   { label: "LED Commercial Upgrades", href: "#services" },
   { label: "Parking Lot Lighting", href: "#services" },
-  { label: "Service & Repair", href: "#contact" },
+  { label: "Restaurant Electrical", href: "#services" },
+  { label: "Generac Generator Install", href: "#services" },
   { label: "Get a Free Quote", href: "#contact" },
 ];
 
+const reviewPlatforms = [
+  {
+    name: "BBB",
+    label: "Better Business Bureau",
+    rating: "A+",
+    detail: "Accredited Business",
+    color: "#003087",
+    href: "https://www.bbb.org/us/ok/yukon/profile/electrician/big-b-wolf-electric-llc-0995-90021962",
+  },
+  {
+    name: "Angi",
+    label: "Angi (Angie's List)",
+    rating: "5.0",
+    detail: "Verified Reviews",
+    color: "#FF6B2B",
+    href: "https://www.angi.com/companylist/us/ok/yukon/big-b-wolf-electric-llc-reviews-6474698.htm#reviews",
+  },
+  {
+    name: "G",
+    label: "Google Reviews",
+    rating: "5.0",
+    detail: "Google Business",
+    color: "#4285F4",
+    href: "https://www.google.com/search?sca_esv=ba586742f70b6987&rlz=1C5CHFA_enUS969US969&sxsrf=ANbL-n5Ct0cPmDUAs3oteCQDMqvSF6DYKg:1771604554103&si=AL3DRZFIhG6pAqfNLal55wUTwygCG0fClF3UxiOmgw9Hq7nbWc9K0lnCusOuuNJ5X_DoH7svAc21l4GWNiI5yPawBerw4W3ptwx4FE5PMatYlVxxD7trgBx69Np-8F188o5IxJ3RB5W13ktgJcSqc2n7g9X4X5Hxvw%3D%3D&q=Big+B+Wolf+Electric+Reviews&sa=X&ved=2ahUKEwjyyIShveiSAxWdDzQIHTviCRUQ0bkNegQIJBAH&biw=1440&bih=692&dpr=2",
+  },
+];
+
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) setSubscribed(true);
-  };
-
   return (
     <footer
       style={{
@@ -50,46 +68,15 @@ export default function Footer() {
       >
         {/* Column 1: Brand */}
         <div>
-          <a
-            href="#"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-              textDecoration: "none",
-              marginBottom: "1.25rem",
-            }}
-          >
-            <WolfLogo size={46} />
-            <div>
-              <div
-                style={{
-                  fontWeight: 900,
-                  fontSize: "1rem",
-                  color: "#FFFFFF",
-                  letterSpacing: "0.02em",
-                  lineHeight: 1.1,
-                }}
-              >
-                BIG B WOLF
-              </div>
-              <div
-                style={{
-                  fontWeight: 500,
-                  fontSize: "0.65rem",
-                  color: "#3B82F6",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.25rem",
-                }}
-              >
-                <Zap size={9} strokeWidth={2.5} />
-                ELECTRIC
-              </div>
+          <div style={{ marginBottom: "1.25rem" }}>
+            <div style={{ fontWeight: 900, fontSize: "1.25rem", color: "#FFFFFF", letterSpacing: "0.02em", lineHeight: 1.1 }}>
+              BIG B WOLF
             </div>
-          </a>
+            <div style={{ fontWeight: 500, fontSize: "0.65rem", color: "#3B82F6", letterSpacing: "0.15em", textTransform: "uppercase", display: "flex", alignItems: "center", gap: "0.25rem", marginTop: "0.2rem" }}>
+              <Zap size={9} strokeWidth={2.5} />
+              ELECTRIC
+            </div>
+          </div>
 
           <p
             style={{
@@ -101,7 +88,7 @@ export default function Footer() {
             }}
           >
             Powering Commercial &amp; Residential Excellence. Precision
-            electrical work for Arizona&apos;s homes, businesses, and facilities.
+            electrical work for Yukon and the greater OKC area.
           </p>
 
           {/* Credential badges */}
@@ -211,7 +198,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 4: Newsletter */}
+        {/* Column 4: Reviews */}
         <div>
           <h4
             style={{
@@ -221,155 +208,80 @@ export default function Footer() {
               color: "#A3A3A3",
               textTransform: "uppercase",
               margin: 0,
-              marginBottom: "1.25rem",
+              marginBottom: "0.5rem",
             }}
           >
-            Stay Updated
+            Customer Reviews
           </h4>
-          <p
-            style={{
-              color: "#A3A3A3",
-              fontSize: "0.82rem",
-              lineHeight: 1.65,
-              marginBottom: "1.25rem",
-            }}
-          >
-            Get electrical tips, energy-saving guides, and project updates.
+          <p style={{ color: "#A3A3A3", fontSize: "0.78rem", lineHeight: 1.6, marginBottom: "1.25rem" }}>
+            See what our customers are saying across the web.
           </p>
 
-          {subscribed ? (
-            <div
-              style={{
-                backgroundColor: "rgba(59,130,246,0.08)",
-                border: "1px solid rgba(59,130,246,0.3)",
-                padding: "0.85rem 1rem",
-                color: "#3B82F6",
-                fontSize: "0.82rem",
-                fontWeight: 600,
-              }}
-            >
-              You&apos;re subscribed. Thanks!
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  style={{
-                    backgroundColor: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    color: "#FFFFFF",
-                    fontSize: "0.85rem",
-                    padding: "0.75rem 1rem",
-                    outline: "none",
-                    fontFamily: "inherit",
-                    width: "100%",
-                    transition: "border-color 0.2s ease",
-                  }}
-                  onFocus={(e) =>
-                    (e.currentTarget.style.borderColor = "rgba(59,130,246,0.5)")
-                  }
-                  onBlur={(e) =>
-                    (e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)")
-                  }
-                />
-                <button
-                  type="submit"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "0.4rem",
-                    backgroundColor: "#3B82F6",
-                    color: "#FFFFFF",
-                    border: "none",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.1em",
-                    padding: "0.75rem 1rem",
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    transition: "background-color 0.2s ease",
-                    width: "100%",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = "#2563EB")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor = "#3B82F6")
-                  }
-                >
-                  SUBSCRIBE
-                  <ArrowRight size={12} strokeWidth={2.5} />
-                </button>
-              </div>
-            </form>
-          )}
-
-          {/* BBB Badge placeholder */}
-          <div
-            style={{
-              marginTop: "1.75rem",
-              padding: "1rem",
-              backgroundColor: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-            }}
-          >
-            <div
-              style={{
-                width: "40px",
-                height: "40px",
-                backgroundColor: "#003087",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 900,
-                fontSize: "0.75rem",
-                color: "#FFFFFF",
-                letterSpacing: "0.05em",
-                flexShrink: 0,
-              }}
-            >
-              BBB
-            </div>
-            <div>
-              <div
-                style={{
-                  fontSize: "0.78rem",
-                  fontWeight: 700,
-                  color: "#FFFFFF",
-                  marginBottom: "0.15rem",
-                }}
-              >
-                A+ Accredited Business
-              </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+            {reviewPlatforms.map((platform) => (
               <a
-                href="https://www.bbb.org"
+                key={platform.name}
+                href={platform.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontSize: "0.65rem",
-                  color: "#A3A3A3",
-                  textDecoration: "none",
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.25rem",
-                  transition: "color 0.2s ease",
+                  gap: "0.85rem",
+                  padding: "0.85rem 1rem",
+                  backgroundColor: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  textDecoration: "none",
+                  transition: "border-color 0.2s ease, background-color 0.2s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#3B82F6")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#A3A3A3")}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+                  e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.06)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.03)";
+                }}
               >
-                Better Business Bureau
-                <ExternalLink size={9} />
+                {/* Platform badge */}
+                <div
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    backgroundColor: platform.color,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: 900,
+                    fontSize: "0.7rem",
+                    color: "#FFFFFF",
+                    letterSpacing: "0.03em",
+                    flexShrink: 0,
+                  }}
+                >
+                  {platform.name}
+                </div>
+
+                {/* Info */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginBottom: "0.2rem" }}>
+                    <span style={{ fontWeight: 700, fontSize: "0.78rem", color: "#FFFFFF" }}>
+                      {platform.rating}
+                    </span>
+                    <div style={{ display: "flex", gap: "1px" }}>
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} size={9} fill="#FBBF24" color="#FBBF24" strokeWidth={0} />
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ fontSize: "0.65rem", color: "#A3A3A3", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    {platform.detail}
+                  </div>
+                </div>
+
+                <ExternalLink size={12} color="#A3A3A3" strokeWidth={1.5} style={{ flexShrink: 0 }} />
               </a>
-            </div>
+            ))}
           </div>
         </div>
       </div>

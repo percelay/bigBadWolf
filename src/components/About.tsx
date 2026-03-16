@@ -1,7 +1,6 @@
 "use client";
 
 import { Shield, Award, Zap, CheckCircle } from "lucide-react";
-import WolfLogo from "./WolfLogo";
 
 const stats = [
   { value: "15+", label: "Years Experience" },
@@ -43,19 +42,6 @@ export default function About() {
         overflow: "hidden",
       }}
     >
-      {/* Background wolf watermark */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-4rem",
-          left: "-3rem",
-          opacity: 0.04,
-          pointerEvents: "none",
-        }}
-      >
-        <WolfLogo size={400} />
-      </div>
-
       <div
         style={{
           maxWidth: "1280px",

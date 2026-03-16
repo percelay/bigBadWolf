@@ -20,7 +20,7 @@ export default function Hero() {
     >
       {/* Full-bleed background photo — no tint */}
       <Image
-        src="/Gemini_Generated_Image_3e0vte3e0vte3e0v.png"
+        src="/images/IMG_3010.jpeg"
         alt="Big B Wolf Electric"
         fill
         priority
